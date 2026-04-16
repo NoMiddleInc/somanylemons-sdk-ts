@@ -1,0 +1,54 @@
+{
+  "name": "somanylemons-sdk",
+  "version": "0.1.0",
+  "description": "TypeScript SDK for the SoManyLemons Public API — branded video reels, LinkedIn content, image quotes.",
+  "type": "module",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    }
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "build": "tsup",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "lint": "tsc --noEmit",
+    "clean": "rm -rf dist"
+  },
+  "keywords": [
+    "somanylemons",
+    "sml",
+    "video",
+    "linkedin",
+    "content-marketing",
+    "sdk",
+    "api"
+  ],
+  "author": "SoManyLemons <support@somanylemons.com>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/NoMiddleInc/somanylemons-sdk-ts"
+  },
+  "homepage": "https://somanylemons.com",
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^25.6.0",
+    "msw": "^2.0",
+    "tsup": "^8.0",
+    "typescript": "^5.5",
+    "vitest": "^2.0"
+  }
+}
