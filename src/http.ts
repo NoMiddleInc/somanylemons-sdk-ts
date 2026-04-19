@@ -148,7 +148,7 @@ export interface RequestOptions {
 
 export class HttpTransport {
   readonly baseUrl: string;
-  private readonly _apiKey: string;
+  private _apiKey!: string;
   private readonly _timeout: number;
   private readonly _maxRetries: number;
 
@@ -159,7 +159,15 @@ export class HttpTransport {
     maxRetries: number;
   }) {
     if (!opts.apiKey) throw new AuthError("API key is required");
-    this._apiKey = opts.apiKey;
+    // Store the key as a non-enumerable property so JSON.stringify,
+    // Object.keys, and for-in loops never see it. Only explicit
+    // property access (this._apiKey) can retrieve the value.
+    Object.defineProperty(this, "_apiKey", {
+      value: opts.apiKey,
+      enumerable: false,
+      writable: false,
+      configurable: false,
+    });
     this.baseUrl = opts.baseUrl;
     this._timeout = opts.timeout;
     this._maxRetries = opts.maxRetries;
