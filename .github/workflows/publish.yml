@@ -46,6 +46,6 @@ jobs:
             echo "::error::Tag $TAG != package.json version $PKG_VERSION"
             exit 1
           fi
-      - run: npm publish --access public
+      - run: npm publish --provenance --access public
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
