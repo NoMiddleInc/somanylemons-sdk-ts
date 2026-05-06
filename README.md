@@ -27,6 +27,7 @@ for (const job of jobs) {
 const job = await client.reels.createAndWait({
   url: "https://example.com/recording.mp4",
   brand_profile_id: 1,
+  asset_types: ["videogram"], // default; add "audiogram" or "image_quote" when needed
   caption_style: "LEMON",
 });
 for (const clip of job.clips ?? []) {

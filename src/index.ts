@@ -48,6 +48,7 @@ export type {
   BrandSource,
   ReelsCreateParams,
   ReelsResponse,
+  AssetType,
   CaptionStyle,
   CaptionConfig,
   Background,

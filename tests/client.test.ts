@@ -135,11 +135,22 @@ describe("reels.create()", () => {
     const client = makeClient();
     const resp = await client.reels.create({
       url: "https://example.com/video.mp4",
+      asset_types: ["videogram", "image_quote"],
       caption_style: "LEMON",
     });
 
     expect(resp.id).toBe("abc-123");
     expect(resp.status).toBe("pending");
+    expect(globalThis.fetch).toHaveBeenCalledWith(
+      "https://api.test.somanylemons.com/api/v1/clip",
+      expect.objectContaining({
+        body: JSON.stringify({
+          url: "https://example.com/video.mp4",
+          asset_types: ["videogram", "image_quote"],
+          caption_style: "LEMON",
+        }),
+      }),
+    );
   });
 });
 

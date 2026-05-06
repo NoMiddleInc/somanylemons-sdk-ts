@@ -74,6 +74,8 @@ export type CaptionStyle =
   | "LEMON" | "VITAMIN_C" | "PLAIN" | "SPOTLIGHT"
   | "GLITCH" | "RANSOM" | "WAVE" | "BOUNCE";
 
+export type AssetType = "videogram" | "audiogram" | "image_quote";
+
 export type BackgroundType = "solid" | "image" | "video" | "gradient";
 
 export interface Background {
@@ -102,6 +104,8 @@ export interface CaptionConfig {
 export interface ReelsCreateParams {
   url: string;
   brand_profile_id?: number;
+  /** Defaults to ["videogram"] when omitted. */
+  asset_types?: AssetType[];
   caption_style?: CaptionStyle;
   background?: Background;
   logo_url?: string;
