@@ -38,9 +38,13 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/NoMiddleInc/somanylemons-sdk-ts"
+    "url": "git+https://github.com/NoMiddleInc/somanylemons-sdk-ts.git"
   },
   "homepage": "https://somanylemons.com",
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  },
   "engines": {
     "node": ">=18.0.0"
   },
